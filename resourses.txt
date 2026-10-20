@@ -7,30 +7,50 @@
 - ESP32 (мб надо посмотреть конкретные модели, говорят ESP32 DevKitC подойдет)
 
 Датчики:
+- Емкостный датчик влажности почвы  
+    Есть на ФАБРИКЕ
 - I2c температуры и влажности.  (±2% RH, ±0.3°C), наличие встроенного нагревательного элемента для принудительного испарения конденсата. Логика 3,3В
+    https://www.ozon.ru/product/sht30-sht31-sht35-sht40-sht41-sht45-modul-tsifrovogo-vyhodnogo-datchika-temperatury-i-vlazhnosti-5567066386/?at=1uGo1ZyuBBAamgArdTEhrVfJYx6PgGto&from_sku=5567066386&oos_search=false&sh=ANWqUwzwsg
 - NDIR датчик CO2. Диапазон 0–5000 ppm, интерфейс UART, питание 5В (с логическими уровнями, совместимыми с 3.3В ESP32)
+    CCS811 с ФАБРИКИ
 - I2C датчик овещенности. Диапазон 0–65000+ люкс, логика 3.3В.
-- Емкость бака предлагаю измерять с помощью весов, понадобится:
+    https://www.chipdip.ru/product/datchik-osveschennosti-tsifrovoy-gy-302-bh1750-8009337880
+Емкость баков предлагаю измерять с помощью весов, понадобится:
 - 2х Тензодатчик балочный (Load Cell)
-- 2ч Модуль АЦП HX711 (усилитель для тензодатчика, общается с ESP32).
+    https://www.ozon.ru/product/tenzodatchik-izmereniya-vesa-do-5-kg-i-modul-atsp-hx711-3199718892/?at=1uKo1X5M2gRpB-IVGnHakv2iao9d9iS7&sh=ANWqUy7nqw&hideable_rating=true
+- 2ч Модуль АЦП HX711 (усилитель для тензодатчика, общается с ESP32). 
+    СРАЗУ ВКЛЮЧЕН В ТЕНЗОДАТЧИК
 
 Исполнители:
 - Водяное охлаждение AIO 200+W
-- 2х вертушки для перемешивания             ? какая мощность, размер 
-- вертушка прогоночная (возможно 2)         ? какая мощность, размер (лучше маленьккую, пох на мощность)
+    https://www.dns-shop.ru/product/c5f21de06bd9ed20/sistema-ohlazdenia-darkflash-radiant-dcs-240-belaa/
+- 2х вертушки для перемешивания             ? какая мощность, размер (можно взять как прогоночные, можно поменьше)
+    https://www.dns-shop.ru/product/8d22aa0817a81b80/ventilator-gembird-d40bm-12a-cernyj/
+- 2х вертушка прогоночная  40х40 мм, шариковые подшипники, 5+ CFM
+    ТО ЖЕ, ЧТО И СВЕРХУ
 - 2х воздушных клапанов
+    https://www.ozon.ru/product/elektromagnitnyy-klapan-2v025-08-reversivnyy-klapan-12-v-postoyannogo-toka-1690925180/?at=1uKo1VNYMb0Q6-vc3gXVOyFhjxB5DCTO&sh=ANWqU60QZg
 - ультразвуковой увлажнитель 5V
+    https://ozon.ru/t/UuXY87f
 - Элемент пелетье
+    https://ozon.ru/t/TOB1r81
 - Водяной насос 12V
-- Светодиоды                                ? какие именно по длине волны? Светимость?
-- Плоский РТС нагреватель                               ? какая мощность
+    с ФАБРИКИ TSSP370
+- Светодиоды полноспектральые LED модули, 14,4 - 19,6 Вт/м 
+    https://ozon.ru/t/HqF0I2E    
+- силиконовый коврик 50+ Вт
+    https://ozon.ru/t/3QqzCbJ
 
 Управление электричеством:
-- N-канальный MOSFET транзисторы Logic level (лучше 2V), 1А+        ?сколько
-- Реле, открываемое с esp (та схема) 10А        ? SSR-40 DD (кроме пелетье)    ВИДИМО ПРИДЕТСЯ СОБИРАТЬ САМИМ, ОЧЕНЬ ДОРОГО.
-                                                 так же говорится о каком то RobotDyn Relay Modules.
-- Реле для пелетье, как прошлое, но 20А +
-- Теплореле на 70 град. (для нагревателя)
+- N-канальный MOSFET транзисторы Logic level (лучше 2V), 4А+        IRLML2502
+    https://www.chipdip.ru/product/irlml2502-tranzistor-n-mosfet-20v-3.6a-1vt-0.07om-huashuo-9000785145
+- N-канальный MOSFET транзисторы Logic level (лучше 2V), 30А+
+    https://www.chipdip.ru/product/irlz44npbf-hxy-tranzistor-n-mosfet-60v-60a-120vt-hxy-mosfet-9001764564
+    https://www.chipdip.ru/product/irlb3034-tranzistor-n-mosfet-40v-343a-to-220-umw-9001633743     0,002 Ом - меньше греется, луяше для пелетье
+- Теплореле на 70 град. (для нагревателя)                нужно для разрыва цепи
+    https://ozon.ru/t/HqFFLy3
+- 4х канальный модуль Реле с опторазвязкой (для насоса и клапанов)
+    https://ozon.ru/t/zLYY379
 
 Базовое:
 - резисторы
@@ -48,4 +68,8 @@
 Остальное:
 - Теплоизоляция
 - Термопаста
+- Шланги
+- Медная пластина
+- термопрокладки
+
 
